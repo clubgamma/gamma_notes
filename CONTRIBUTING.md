@@ -8,7 +8,10 @@ So let's come together and contribute something awesome to the Flutter community
    Read the [Code of Conduct](https://github.com/clubgamma/code-of-conduct) before starting contributing.
 ### 2. Fork the repo
    First of all fork the repo to your own GitHub account by clicking the **Fork** button on top-right corner. Still could not find 🙄,check the below image
-   ![fork](https://user-images.githubusercontent.com/57007680/94579238-360b6b00-0296-11eb-8dfd-c8ac8f10aa26.png)
+   
+   ![fock](https://user-images.githubusercontent.com/65907580/135130647-d15f246a-9fd1-4193-923c-0887435d7df6.PNG)
+   
+   
    After a sucessful fork, you'll see a copy of this repo in your own account.
 
 ### 3. Clone the repo    
