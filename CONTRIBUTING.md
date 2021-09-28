@@ -29,7 +29,7 @@ So let's come together and contribute something awesome to the Flutter community
       
   - Now you have to setup **upstream**. For that write the below git command
       
-    > git remote add upstream https://github.com/clubgamma/RiddlesWorld
+    > git remote add upstream https://github.com/clubgamma/gamma_keep
         
   - Now pull the latest changes from original repo to your local changes by firing thee below command
         
