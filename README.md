@@ -15,7 +15,7 @@
 
 An In-memory Application to store Notes 🤩. 
 
-It is basically a Notes App, which allows you to Pin Note, Add notes to Favourite, Share Notes, Delete Notes as well as auto-saves the Notes.
+It is basically a Notes App, which includes the features like auto-saving notes, add Notes, edit Notes, pin Notes, add notes to favourite, delete Notes, Share Notes as well as Copy Notes.
 
 Read the [CONTRIBUTING.md](https://github.com/clubgamma/gamma_notes/blob/main/CONTRIBUTING.md) to start your open source contribution.
 
