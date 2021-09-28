@@ -18,7 +18,7 @@ An In-memory Application to store Notes 🤩.
 
 The repo contains awesome creations made using an awesome UI framework **Flutter** 💙. All the contributions are made by some enthusiastic and innovative Flutter Devs.
 
-Read the [CONTRIBUTING.md](https://github.com/clubgamma/gamma_notes/blob/master/CONTRIBUTING.md) to start your open source contribution.
+Read the [CONTRIBUTING.md](https://github.com/clubgamma/gamma_notes/blob/main/CONTRIBUTING.md) to start your open source contribution.
 
 ## Getting Started
 
