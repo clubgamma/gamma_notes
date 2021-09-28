@@ -37,45 +37,62 @@ class _AddNoteState extends State<AddNote> {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
-                children: const [
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.location_fill,
-                      color: color.kWhite,
-                    ),
-                    title: Text(
-                      "Send",
-                      style: TextStyle(
+                children: [
+
+
+                  GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: const ListTile(
+                      leading: Icon(
+                        CupertinoIcons.location_fill,
                         color: color.kWhite,
-                        fontSize: 20.0
+                      ),
+                      title: Text(
+                        "Send",
+                        style: TextStyle(
+                          color: color.kWhite,
+                          fontSize: 20.0
+                        ),
                       ),
                     ),
                   ),
 
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.arrow_down_doc,
-                      color: color.kWhite,
-                    ),
-                    title: Text(
-                      "Copy",
-                      style: TextStyle(
-                          color: color.kWhite,
-                          fontSize: 20.0
+                  GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: const ListTile(
+                      leading: Icon(
+                        CupertinoIcons.arrow_down_doc,
+                        color: color.kWhite,
+                      ),
+                      title: Text(
+                        "Copy",
+                        style: TextStyle(
+                            color: color.kWhite,
+                            fontSize: 20.0
+                        ),
                       ),
                     ),
                   ),
 
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.delete,
-                      color: color.kWhite,
-                    ),
-                    title: Text(
-                      "Delete",
-                      style: TextStyle(
-                          color: color.kWhite,
-                          fontSize: 20.0
+                  GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: const ListTile(
+                      leading: Icon(
+                        CupertinoIcons.delete,
+                        color: color.kWhite,
+                      ),
+                      title: Text(
+                        "Delete",
+                        style: TextStyle(
+                            color: color.kWhite,
+                            fontSize: 20.0
+                        ),
                       ),
                     ),
                   )

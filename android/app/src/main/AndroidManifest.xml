@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.clubgamma.gamma_keep">
    <application
-        android:label="gamma_keep"
+        android:label="Gamma Notes"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

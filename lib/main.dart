@@ -8,6 +8,8 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'Screens/splash_screen.dart';
+
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blueGrey,
             fontFamily: 'Ubuntu'
         ),
-        home: const HomePage(),
+        home: SplashScreen(),
       ),
     );
   }
