@@ -15,7 +15,7 @@
 
 An In-memory Application to store Notes 🤩. 
 
-The repo contains awesome creations made using an awesome UI framework **Flutter** 💙. All the contributions are made by some enthusiastic and innovative Flutter Devs.
+It is basically a Notes App, which allows you to Pin Note, Add notes to Favourite, Share Notes, Delete Notes as well as auto-saves the Notes.
 
 Read the [CONTRIBUTING.md](https://github.com/clubgamma/gamma_notes/blob/main/CONTRIBUTING.md) to start your open source contribution.
 
