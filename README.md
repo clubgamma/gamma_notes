@@ -5,7 +5,6 @@
 <a href="https://github.com/clubgamma/gamma_notes/pulls"><img src="https://img.shields.io/github/issues-pr/clubgamma/RiddlesWorld?style=flat?color=yellow"/></a>
 <a href="https://github.com/clubgamma/gamma_notes/issues"><img src="https://img.shields.io/github/issues/clubgamma/RiddlesWorld?style=flat"/></a>
 <a href="https://github.com/clubgamma/gamma_notes/graphs/contributors"><img src="https://img.shields.io/github/contributors/clubgamma/RiddlesWorld?color=orange"/></a>
-<a href="https://github.com/clubgamma/gamma_notes/blob/master/LICENSE"><img src="https://img.shields.io/github/license/clubgamma/RiddlesWorld?color=1abc9c"/></a>
 <br>
   
 [![](https://img.shields.io/badge/Club_Gamma-Code_of_conduct-%23FF0000.svg?&style=flat&logoColor=white&color=red)](https://clubgamma.github.io/code-of-conduct/)
