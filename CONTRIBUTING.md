@@ -18,8 +18,9 @@ So let's come together and contribute something awesome to the Flutter community
    > git clone <REPO_LINK_FROM_YOUR_ACCOUNT>
     
    You can get the repo link from the Download section in the **repo copied in your own account**. Still having trouble🙄,see the below image
-    
-   ![clone](https://user-images.githubusercontent.com/57007680/94578970-efb60c00-0295-11eb-93cc-301e605927bd.png)
+   
+   ![clone](https://user-images.githubusercontent.com/65907580/135130004-4a782302-483a-4589-aef7-b58d4e85599e.PNG)
+
    
  ### 4. Set up remote repo
   - When you cloned your fork, that should have automatically set your fork as the "origin" remote. Use git remote -v to show your current remotes. You should see the URL of your fork (which you copied in step 3) next to the word "origin". 
@@ -38,7 +39,7 @@ So let's come together and contribute something awesome to the Flutter community
  ### 5. Enough BoilerPlates, It's Flutter time now!!
   - Open cloned Project in your favourite IDE. It's time to decide your Playground
 
-   In order to contribute in th Application, have a look CONTRIBUTING.md for some Issues.
+   In order to contribute to the Application, have a look at some [Issues](https://github.com/clubgamma/gamma_keep/issues).
    
  ### 6. Now it's time to save the work
       
