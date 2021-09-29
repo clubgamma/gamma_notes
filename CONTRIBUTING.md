@@ -28,18 +28,18 @@ So let's come together and contribute something awesome to the Flutter community
   
   > git checkout -b branch-name
    
- ### 4. Set up remote repo
+ ### 5. Set up remote repo
   - When you cloned your fork, that should have automatically set your fork as the "origin" remote. Use git remote -v to show your current remotes. You should see the URL of your fork (which you copied in step 3) next to the word "origin". 
       If you don't see an "origin" remote, you can add it using below git command
     
     > git remote add origin <REPO_LINK_FROM_YOUR_ACCOUNT>
   
- ### 5. Enough BoilerPlates, It's Flutter time now!!
+ ### 6. Enough BoilerPlates, It's Flutter time now!!
   - Open cloned Project in your favourite IDE. It's time to decide your Playground
 
    In order to contribute to the Application, have a look at some [Issues](https://github.com/clubgamma/gamma_keep/issues).
    
- ### 6. Now it's time to save the work
+ ### 7. Now it's time to save the work
       
   - Stage the changes you have made by firing the below command
     > git add -A
@@ -48,7 +48,7 @@ So let's come together and contribute something awesome to the Flutter community
   - Push the changes to your forked repo
     > git push -u origin branch-name
   
-### 7. Let's finish this
+### 8. Let's finish this
   
   - Go to your forked repo on GitHub website and refresh the page, you'll see something like the below image
   ![pr1](https://user-images.githubusercontent.com/57007680/94609340-3fa7c980-02bc-11eb-90dd-269a433b00e0.PNG)
