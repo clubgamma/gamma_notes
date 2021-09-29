@@ -33,14 +33,6 @@ So let's come together and contribute something awesome to the Flutter community
       If you don't see an "origin" remote, you can add it using below git command
     
     > git remote add origin <REPO_LINK_FROM_YOUR_ACCOUNT>
-      
-  - Now you have to setup **upstream**. For that write the below git command
-      
-    > git remote add upstream https://github.com/clubgamma/gamma_keep
-        
-  - Now pull the latest changes from original repo to your local changes by firing thee below command
-        
-    > git pull upstream main
   
  ### 5. Enough BoilerPlates, It's Flutter time now!!
   - Open cloned Project in your favourite IDE. It's time to decide your Playground
@@ -62,7 +54,8 @@ So let's come together and contribute something awesome to the Flutter community
   ![pr1](https://user-images.githubusercontent.com/57007680/94609340-3fa7c980-02bc-11eb-90dd-269a433b00e0.PNG)
         
   - Click on pull-request and you will be redirected to another page where you will see something like below image
-  ![pr2](https://user-images.githubusercontent.com/57007680/94609343-420a2380-02bc-11eb-83f1-c6157417c50d.PNG)
+  
+  - ![compare_pull](https://user-images.githubusercontent.com/65907580/135203886-bc8eca6c-86ee-4c3c-8ba1-87365cceee54.PNG)
         
   - After that you have to write your GitHub username as the title of your pull-request and describe your work if you want and that's it!!
     Create a pull-request by clicking the button
@@ -75,7 +68,7 @@ So let's come together and contribute something awesome to the Flutter community
         
     - [X] I have followed all the steps of submission properly.
         
-    ![pr3](https://user-images.githubusercontent.com/58077762/93779010-1e076c00-fc44-11ea-86f0-7a6d74380624.png)
+        ![pull_request](https://user-images.githubusercontent.com/65907580/135203826-138dfac4-35bc-4404-9cf0-c6d62262716d.PNG)
 
 **Woohoo!! Congratulations on making your open source contribution🎉🎉**                                         
 **Wait for some time to get your PR merged by our team**
