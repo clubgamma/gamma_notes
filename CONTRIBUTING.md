@@ -23,7 +23,10 @@ So let's come together and contribute something awesome to the Flutter community
    You can get the repo link from the Download section in the **repo copied in your own account**. Still having trouble🙄,see the below image
    
    ![clone](https://user-images.githubusercontent.com/65907580/135130004-4a782302-483a-4589-aef7-b58d4e85599e.PNG)
-
+   
+### 4. Create a Branch specific to the Issue
+  
+  > git checkout -b branch-name
    
  ### 4. Set up remote repo
   - When you cloned your fork, that should have automatically set your fork as the "origin" remote. Use git remote -v to show your current remotes. You should see the URL of your fork (which you copied in step 3) next to the word "origin". 
@@ -37,7 +40,7 @@ So let's come together and contribute something awesome to the Flutter community
         
   - Now pull the latest changes from original repo to your local changes by firing thee below command
         
-    > git pull upstream master
+    > git pull upstream main
   
  ### 5. Enough BoilerPlates, It's Flutter time now!!
   - Open cloned Project in your favourite IDE. It's time to decide your Playground
@@ -51,7 +54,7 @@ So let's come together and contribute something awesome to the Flutter community
   - Commit the changes 
     > git commit -m "Description of changes/your work"
   - Push the changes to your forked repo
-    > git push origin master
+    > git push -u origin branch-name
   
 ### 7. Let's finish this
   
