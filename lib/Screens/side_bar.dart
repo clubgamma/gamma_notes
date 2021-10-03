@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gamma_keep/Constants/color.dart';
 import '../Constants/color.dart' as color;
 
 class SideBar extends StatefulWidget {
@@ -13,7 +14,7 @@ class _SideBarState extends State<SideBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      //backgroundColor: colors.kBgColor,
+      backgroundColor: kBgColor,
       child: Column(
         children: [
           Padding(
