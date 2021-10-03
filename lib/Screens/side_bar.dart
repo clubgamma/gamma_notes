@@ -13,7 +13,7 @@ class _SideBarState extends State<SideBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: color.kCardColor,
+      //backgroundColor: colors.kBgColor,
       child: Column(
         children: [
           Padding(
