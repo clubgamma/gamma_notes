@@ -40,6 +40,7 @@ dependencies:
   equatable: ^2.0.3
   json_annotation: ^4.1.0
   bloc: ^7.2.0
+  share: ^2.0.4
 
 dev_dependencies:
   flutter_test:

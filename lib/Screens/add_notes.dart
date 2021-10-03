@@ -7,6 +7,7 @@ import 'package:gamma_keep/NewLogic/new_note_event.dart';
 import 'package:gamma_keep/NewLogic/new_note_state.dart';
 import 'package:gamma_keep/NewLogic/note_data.dart';
 import '../Constants/color.dart' as color;
+import 'package:share/share.dart';
 
 class AddNote extends StatefulWidget {
 
@@ -42,7 +43,7 @@ class _AddNoteState extends State<AddNote> {
 
                   GestureDetector(
                     onTap: (){
-
+                      Share.share(_descriptionController.text, subject: _titleController.text );
                     },
                     child: const ListTile(
                       leading: Icon(
