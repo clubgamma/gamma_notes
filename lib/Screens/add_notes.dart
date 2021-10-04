@@ -8,6 +8,8 @@ import 'package:gamma_keep/NewLogic/new_note_state.dart';
 import 'package:gamma_keep/NewLogic/note_data.dart';
 import '../Constants/color.dart' as color;
 import 'package:share/share.dart';
+import 'package:flutter/services.dart';
+
 
 class AddNote extends StatefulWidget {
 
@@ -62,7 +64,11 @@ class _AddNoteState extends State<AddNote> {
 
                   GestureDetector(
                     onTap: (){
-
+                      Clipboard.setData(new ClipboardData(text: _descriptionController.text )).then((_){
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(SnackBar(content: Text('Copied to your clipboard !')));
+                      });
                     },
                     child: const ListTile(
                       leading: Icon(
