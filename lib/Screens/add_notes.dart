@@ -185,18 +185,31 @@ class _AddNoteState extends State<AddNote> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: BlocBuilder<NewNoteBloc, NewNoteState>(
-            builder: (context, state){
-              return GestureDetector(
-                onTap: (){
-                  // BlocProvider.of<NoteCubit>(context).update_fav(
-                  //     state.noteData[widget.note_id].fav ? false : true,
-                  //     widget.note_id);
-                },
-                child: const Icon(
-                  CupertinoIcons.heart_fill, // state.noteData[widget.note_id].fav ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-                  color: Colors.redAccent, //state.noteData[widget.note_id].fav ? Colors.redAccent : Colors.white,
-                ),
-              );
+            builder: (context, state) {
+              if (state is NewYourNoteState) {
+                if (!widget.newNote) {
+                  return GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<NewNoteBloc>(context).add(
+                          NewNoteFavEditEvent(
+                              fav: !state.noteData[widget.id].fav,
+                              id: widget.id));
+                    },
+                    child: Icon(
+                      state.noteData[widget.id].fav
+                          ? CupertinoIcons.heart_fill
+                          : CupertinoIcons.heart,
+                      color: state.noteData[widget.id].fav
+                          ? Colors.redAccent
+                          : Colors.white,
+                    ),
+                  );
+                } else {
+                  return SizedBox();
+                }
+              } else {
+                return const SizedBox();
+              }
             },
           ),
         ),
