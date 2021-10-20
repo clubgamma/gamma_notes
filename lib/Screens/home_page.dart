@@ -9,6 +9,7 @@ import 'package:gamma_keep/NewLogic/new_note_event.dart';
 import 'package:gamma_keep/NewLogic/new_note_state.dart';
 import 'package:gamma_keep/NewLogic/note_data.dart';
 import 'package:gamma_keep/Screens/add_notes.dart';
+import 'package:gamma_keep/Screens/notes.dart';
 import 'package:gamma_keep/Screens/side_bar.dart';
 import '../Constants/color.dart' as colors;
 
@@ -21,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  bool _isGrid = true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +43,42 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         title: const Text("Gamma Notes"),
+        actions: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                _isGrid ? _isGrid = false : _isGrid = true;
+              });
+            },
+            splashColor: colors.kCardColor,
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text(
+                    _isGrid ? 'GridView' : 'ListView',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Icon(
+                      _isGrid
+                          ? Icons.list_alt_outlined
+                          : Icons.grid_view_outlined,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.tealAccent,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (BuildContext context) {
             return AddNote(
               newNote: true,
               id: -1,
@@ -79,7 +112,31 @@ class _HomePageState extends State<HomePage> {
           return Container();
         }
         if (state is NewYourNoteState) {
-          return GridView.builder(
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: NotesView(
+              state: state,
+              isGrid: _isGrid,
+            ),
+          );
+        } else {
+          return Container();
+        }
+      },
+    );
+  }
+}
+
+class NotesView extends StatelessWidget {
+  final state;
+  final bool isGrid;
+
+  NotesView({required this.state, required this.isGrid});
+
+  @override
+  Widget build(BuildContext context) {
+    return isGrid
+        ? GridView.builder(
             shrinkWrap: true,
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
@@ -89,83 +146,23 @@ class _HomePageState extends State<HomePage> {
               childAspectRatio: 0.75,
             ),
             itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                focusColor: Colors.white30,
-                onTap: () async {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AddNote(
-                                id: index,
-                                newNote: false,
-                                note: state.noteData[index],
-                              )));
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 4),
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white30, width: 0.5), borderRadius: BorderRadius.circular(15), color: colors.kCardColor),
-                  child: LayoutBuilder(
-                    builder: (_, constraints) {
-
-                      var blocProvider = BlocProvider.of<NewNoteBloc>(context);
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(state.noteData[index].note_title,
-                                  style: const TextStyle(color: colors.kWhite, fontSize: 18.0, letterSpacing: 1.0), overflow: TextOverflow.ellipsis),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              Text(state.noteData[index].note_des,
-                                  style: const TextStyle(color: colors.kWhite, fontSize: 15.0, letterSpacing: 0.5),
-                                  maxLines: 9,
-                                  overflow: TextOverflow.ellipsis),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-
-
-                              GestureDetector(
-                                onTap: () {
-                                  blocProvider.add(NewNoteFavEditEvent(fav: !state.noteData[index].fav, id: index));
-                                },
-                                child: Icon(
-                                  state.noteData[index].fav ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-                                  color: state.noteData[index].fav ? Colors.redAccent : Colors.white,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  blocProvider.add(NewNotePinEditEvent(pin: !state.noteData[index].pin, id: index));
-                                },
-                                child: Icon(
-                                  state.noteData[index].pin ? CupertinoIcons.pin_fill : CupertinoIcons.pin,
-                                  color: state.noteData[index].pin ? Colors.green : Colors.white,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      );
-                    },
-                  ),
-                ),
+              return Notes(
+                state: state,
+                index: index,
+              );
+            },
+          )
+        : ListView.builder(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            itemCount: state.noteData.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Notes(
+                state: state,
+                index: index,
               );
             },
           );
-        } else {
-          return Container();
-        }
-      },
-    );
   }
 }
