@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gamma_keep/NewLogic/new_note_bloc.dart';
 import 'package:gamma_keep/NewLogic/new_note_state.dart';
 import 'package:gamma_keep/Screens/add_notes.dart';
+import 'package:gamma_keep/Screens/pinned_note.dart';
 import 'package:gamma_keep/Screens/side_bar.dart';
 import '../Constants/color.dart' as colors;
 
@@ -16,6 +17,7 @@ class PinnedNotes extends StatefulWidget {
 
 class _PinnedNotesState extends State<PinnedNotes> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  bool _isGrid = true;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,36 @@ class _PinnedNotesState extends State<PinnedNotes> {
             size: 27.0,
           ),
         ),
+        actions: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                _isGrid ? _isGrid = false : _isGrid = true;
+              });
+            },
+            splashColor: colors.kCardColor,
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text(
+                    _isGrid ? 'GridView' : 'ListView',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Icon(
+                      _isGrid
+                          ? Icons.list_alt_outlined
+                          : Icons.grid_view_outlined,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
         title: const Text("Pinned Notes"),
       ),
       body: buildNotes(),
@@ -50,74 +82,58 @@ class _PinnedNotesState extends State<PinnedNotes> {
           return Container();
         }
         if (state is NewYourNoteState) {
-          return GridView.builder(
-              shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              itemCount: state.noteData.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.75,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                if (state.noteData[index].pin) {
-                  return InkWell(
-                    focusColor: Colors.white30,
-                    onTap: () async {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddNote(
-                                    id: index,
-                                    newNote: false,
-                                    note: state.noteData[index],
-                                  )));
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 10),
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 7.0, horizontal: 4),
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white30, width: 0.5),
-                          borderRadius: BorderRadius.circular(15),
-                          color: colors.kCardColor),
-                      child: LayoutBuilder(
-                        builder: (_, constraints) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(state.noteData[index].note_title,
-                                  style: const TextStyle(
-                                      color: colors.kWhite,
-                                      fontSize: 18.0,
-                                      letterSpacing: 1.0),
-                                  overflow: TextOverflow.ellipsis),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
-                              Text(state.noteData[index].note_des,
-                                  style: const TextStyle(
-                                      color: colors.kWhite,
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.5),
-                                  maxLines: 9,
-                                  overflow: TextOverflow.ellipsis),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-                  );
-                } else {
-                  return Container();
-                }
-              });
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: PinnedNotesView(state: state, isGrid: _isGrid),
+          );
         } else {
           return Container();
         }
       },
     );
+  }
+}
+
+class PinnedNotesView extends StatelessWidget {
+  final state;
+  final bool isGrid;
+
+  PinnedNotesView({required this.state, required this.isGrid});
+
+  @override
+  Widget build(BuildContext context) {
+    return isGrid
+        ? GridView.builder(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            itemCount: state.noteData.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.75,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              if (state.noteData[index].pin) {
+                return PinnedNote(
+                  state: state,
+                  index: index,
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            })
+        : ListView.builder(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            itemCount: state.noteData.length,
+            itemBuilder: (BuildContext context, int index) {
+              if (state.noteData[index].pin) {
+                return PinnedNote(state: state, index: index);
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          );
   }
 }

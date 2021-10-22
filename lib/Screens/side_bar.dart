@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gamma_keep/Constants/color.dart';
+import 'package:gamma_keep/Screens/home_page.dart';
 import 'package:gamma_keep/Screens/pin_notes.dart';
 import '../Constants/color.dart' as color;
 
@@ -39,6 +40,22 @@ class _SideBarState extends State<SideBar> {
             const Divider(
               height: 1.0,
               color: Colors.white24,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: const ListTile(
+                leading: Icon(
+                  CupertinoIcons.home,
+                  color: color.kWhite,
+                ),
+                title: Text(
+                  "Home",
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
+              ),
             ),
             InkWell(
               onTap: () {
