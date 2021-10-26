@@ -20,6 +20,9 @@ class AddNote extends StatefulWidget {
 }
 
 class _AddNoteState extends State<AddNote> {
+
+  bool isDeletedNote=false;//tells whether the note is intended to be deleted.
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
@@ -70,7 +73,15 @@ class _AddNoteState extends State<AddNote> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        isDeletedNote=true;
+                      });
+                      BlocProvider.of<NewNoteBloc>(context).add(NewNoteDeleteEvent(id: widget.id));//remove the note from list
+                      //pop the bottom sheet and screen
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
                     child: const ListTile(
                       leading: Icon(
                         CupertinoIcons.delete,
@@ -132,7 +143,14 @@ class _AddNoteState extends State<AddNote> {
           child: BlocBuilder<NewNoteBloc, NewNoteState>(
             builder: (context, state) {
               if (state is NewYourNoteState) {
-                if (!widget.newNote) {
+                if(isDeletedNote){//do not return new UI if the note is to be deleted
+
+                  //The bloc Builder rebuilds UI every time there is a change in NewNoteBloc.
+                  //Whenever we delete a note, the BlocBuilder rebuilds the appbar for the deleted Note id,
+                  //hence this condition stops it fro rebuilding said UI if the note is deleted.
+                  return const SizedBox();
+                }
+                else if (!widget.newNote) {
                   return GestureDetector(
                     onTap: () {
                       BlocProvider.of<NewNoteBloc>(context).add(NewNotePinEditEvent(pin: !state.noteData[widget.id].pin, id: widget.id));
@@ -156,7 +174,10 @@ class _AddNoteState extends State<AddNote> {
           child: BlocBuilder<NewNoteBloc, NewNoteState>(
             builder: (context, state) {
               if (state is NewYourNoteState) {
-                if (!widget.newNote) {
+                if(isDeletedNote){//do not return new UI if the note is to be deleted
+                  return const SizedBox();
+                }
+                else if (!widget.newNote) {
                   return GestureDetector(
                     onTap: () {
                       BlocProvider.of<NewNoteBloc>(context).add(NewNoteFavEditEvent(fav: !state.noteData[widget.id].fav, id: widget.id));
@@ -232,7 +253,10 @@ class _AddNoteState extends State<AddNote> {
               padding: const EdgeInsets.only(left: 10.0),
               child: BlocBuilder<NewNoteBloc, NewNoteState>(
                 builder: (context, state) {
-                  if (state is NewYourNoteState) {
+                  if(isDeletedNote){//do not return new UI if the note is to be deleted
+                    return const SizedBox();
+                  }
+                  else if (state is NewYourNoteState) {
                     return Text(
                       widget.newNote
                           ? ""
