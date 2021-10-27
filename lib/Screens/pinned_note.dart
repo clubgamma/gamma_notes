@@ -58,7 +58,7 @@ class PinnedNote extends StatelessWidget {
                             color: colors.kWhite,
                             fontSize: 15.0,
                             letterSpacing: 0.5),
-                        maxLines: 9,
+                        maxLines: 6,
                         overflow: TextOverflow.ellipsis),
                   ],
                 ),
