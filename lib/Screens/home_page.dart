@@ -9,7 +9,7 @@ import 'package:gamma_keep/NewLogic/new_note_event.dart';
 import 'package:gamma_keep/NewLogic/new_note_state.dart';
 import 'package:gamma_keep/NewLogic/note_data.dart';
 import 'package:gamma_keep/Screens/add_notes.dart';
-import 'package:gamma_keep/Screens/notes.dart';
+import 'package:gamma_keep/Screens/note.dart';
 import 'package:gamma_keep/Screens/side_bar.dart';
 import '../Constants/color.dart' as colors;
 

@@ -11,13 +11,12 @@ import 'package:path_provider/path_provider.dart';
 import 'Screens/splash_screen.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   HydratedBloc.storage = await HydratedStorage.build(
-      storageDirectory: kIsWeb
-      ? HydratedStorage.webStorageDirectory
-      : await getTemporaryDirectory(),
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getTemporaryDirectory(),
   );
 
   runApp(const MyApp());
@@ -32,10 +31,7 @@ class MyApp extends StatelessWidget {
       create: (context) => NewNoteBloc(),
       child: MaterialApp(
         title: 'Gamma Notes',
-        theme: ThemeData(
-            primarySwatch: Colors.blueGrey,
-            fontFamily: 'Ubuntu'
-        ),
+        theme: ThemeData(primarySwatch: Colors.blueGrey, fontFamily: 'Ubuntu'),
         home: SplashScreen(),
       ),
     );

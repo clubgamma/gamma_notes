@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gamma_keep/Constants/color.dart';
+import 'package:gamma_keep/Screens/fav_notes.dart';
 import 'package:gamma_keep/Screens/home_page.dart';
 import 'package:gamma_keep/Screens/pin_notes.dart';
 import '../Constants/color.dart' as color;
@@ -73,14 +74,22 @@ class _SideBarState extends State<SideBar> {
                 ),
               ),
             ),
-            const ListTile(
-              leading: Icon(
-                CupertinoIcons.heart,
-                color: color.kWhite,
-              ),
-              title: Text(
-                "Favourites",
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FavoriteNotesScreen()));
+              },
+              child: const ListTile(
+                leading: Icon(
+                  CupertinoIcons.heart,
+                  color: color.kWhite,
+                ),
+                title: Text(
+                  "Favourites",
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
               ),
             ),
           ],
